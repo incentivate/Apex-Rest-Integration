@@ -8,6 +8,7 @@ public with sharing class ProductController {
         {
             return ProductJsonParser.GetParsedJsonResult(Json.createParser(response.getBody() )); 
         }
+        
         else return null;
 
     }

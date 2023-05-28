@@ -15,7 +15,7 @@ public with sharing class ProductModel {
                 BeerProduct__c b1 = new BeerProduct__c();
 
                 if(prodKeySet.containskey(ProductConstants.PRODUCTNAME)){
-                   // b1.Description__c = prodKeySet.get(ProductConstants.PRODUCTNAME);
+                    b1.Description__c = prodKeySet.get(ProductConstants.PRODUCTNAME);
                 }
                 if(prodKeySet.containskey(ProductConstants.QUANTITYSTR)){
                     b1.Quantity__c = Decimal.valueOf(prodKeySet.get(ProductConstants.QUANTITYSTR));
