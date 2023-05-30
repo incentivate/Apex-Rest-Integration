@@ -14,11 +14,14 @@ public with sharing class ProductTestClass {
     }
 
     @isTest
-    static void ProdShchedule()
+    static void ProductSchedule()
     {
         system.Test.startTest();
         APIMimicTest.CreateAPIData();
         string cronExp = '0 6 * * * ?';
-        integer numOfJobs = [SELECT count() from crontrigger where cronjobdetails.jobtype = '7'];
+        system.schedule('Update schedule', cronExp, new ProductSchedule());
+        integer numberOfJobs = [SELECT count() from crontrigger where cronjobdetail.jobtype = '7'];        
+        system.assert(numberOfJobs>=1);
+        system.Test.stopTest();
     }
 }
