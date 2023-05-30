@@ -28,12 +28,12 @@ public with sharing class ProductTestClass {
     @isTest
     static void TestProductBatch()
     {
-        System.Test.startTest();
         APIMimicTest.CreateAPIData();
+        System.Test.startTest();
         ProductBatch p = new ProductBatch();
         database.executeBatch(p, 10);
+        System.Test.stopTest();
         BeerProduct__c b = [SELECT id FROM BeerProduct__c LIMIT 1 ];
         system.assert(b.id!=null);
-        System.Test.stopTest();
     }
 }
