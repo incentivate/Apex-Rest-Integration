@@ -16,9 +16,10 @@ public with sharing class APIMimicTest implements HTTPCalloutMock {
         public static void CreateAPIData()
         {
             StaticResourceCalloutMock mockCallout = new StaticResourceCalloutMock();
-            mockCallout.setStaticResource('StaticResourceForCallout');
+            mockCallout.setStaticResource('ProductJsonForCallout');
             mockCallout.setStatusCode(200);
             mockCallout.setHeader('Content-Type', 'application/json');
+            //HTTPMockTest apiMock = new HTTPMockTest(body, 'application/json');
             system.Test.setMock(HTTPCalloutMock.class, mockCallout);
             
         }
