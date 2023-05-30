@@ -24,4 +24,16 @@ public with sharing class ProductTestClass {
         system.assert(numberOfJobs>=1);
         system.Test.stopTest();
     }
+
+    @isTest
+    static void TestProductBatch()
+    {
+        System.Test.startTest();
+        APIMimicTest.CreateAPIData();
+        ProductBatch p = new ProductBatch();
+        database.executeBatch(p, 10);
+        BeerProduct__c b = [SELECT id FROM BeerProduct__c LIMIT 1 ];
+        system.assert(b.id!=null);
+        System.Test.stopTest();
+    }
 }
