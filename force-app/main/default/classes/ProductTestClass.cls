@@ -12,4 +12,13 @@ public with sharing class ProductTestClass {
         System.Test.stopTest();
 
     }
+
+    @isTest
+    static void ProdShchedule()
+    {
+        system.Test.startTest();
+        APIMimicTest.CreateAPIData();
+        string cronExp = '0 6 * * * ?';
+        integer numOfJobs = [SELECT count() from crontrigger where cronjobdetails.jobtype = '7'];
+    }
 }
